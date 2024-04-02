@@ -1,12 +1,23 @@
-setInterval(()=>{
-    const date = new Date()
+function displayTime() {
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var mins = dateTime.getMinutes();
+    var secs = dateTime.getSeconds();
 
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
+    if (hrs < 10) {
+        hrs = '0' + hrs;
+    }
 
-    document.querySelector('.hours').textContent = hours
-    document.querySelector('.minutes').textContent = minutes
-    document.querySelector('.seconds').textContent = seconds
+    if (mins < 10) {
+        mins = '0' + mins;
+    }
 
-}, 1000)
+    if (secs < 10) {
+        secs = '0' + secs;
+    }
+
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = mins;
+    document.getElementById('seconds').innerHTML = secs;
+}
+setInterval(displayTime, 10);
